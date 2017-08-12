@@ -1,0 +1,19 @@
+PUBG Circle Timeing
+
+1) 1st Defined - 2 min
+2) 1st Till start moving - 5 min
+3) 1st Till Closed - 5 min
+4) 2nd Till start moving - 3:20 min  
+5) 2nd Till Close - 2:20 min
+6) 3rd Till start moving - 2:30 min
+7) 3rd Till Close - 1:30 min
+8) 4th Till Start Moving - 2 min
+9) 4th Till Close - 1 min
+10) 5th Till Start Moving - 2 min
+11) 5th Till Close - 40 sec
+12) 6th Till start moving - 1:30 min
+13) 6th Till Close - 30 sec
+14) 7th Till start Moving - 1:30 min
+15) 7th Till Close - 20 sec
+
+Finish after.
