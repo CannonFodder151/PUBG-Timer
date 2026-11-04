@@ -6,9 +6,18 @@
     Dim totaltime, timemin, timesec, volume As Integer
     Dim sound As Integer
 
+    Private Declare Function waveOutSetVolume Lib "winmm.dll" (ByVal hwo As IntPtr, ByVal dwVolume As UInteger) As Integer
+
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MsgBox("This program is not fully complete and the does volume not work at this point in time, however all other functions of this program are working, in this version mute does work.")
+        volume = hsbvolume.Value
+        ApplyVolume()
+    End Sub
+
+    Private Sub ApplyVolume()
+        Dim vol As UInteger = CUInt(CLng(hsbvolume.Value) * 65535 \ 1000)
+        Dim both As UInteger = (vol << 16) Or vol
+        waveOutSetVolume(IntPtr.Zero, both)
     End Sub
 
 
@@ -25,17 +34,7 @@
         Timer1.Enabled = True
 
 
-        If sound = 1 Then
-            My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-        ElseIf sound = 2 Then
-            My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-        ElseIf sound = 3 Then
-            My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-        ElseIf sound = 4 Then
-            My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-        Else
-
-        End If
+        PlaySound()
 
 
 
@@ -84,16 +83,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
 
@@ -125,16 +115,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -164,16 +145,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -202,16 +174,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -240,16 +203,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -278,16 +232,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -316,16 +261,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -354,16 +290,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -392,16 +319,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -430,16 +348,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -468,16 +377,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -506,16 +406,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -544,16 +435,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -582,16 +464,7 @@
         End If
 
         If totaltime = 0 Then
-            If sound = 1 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 2 Then
-                My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
-            ElseIf sound = 3 Then
-                My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
-            ElseIf sound = 4 Then
-                My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
-            Else
-            End If
+            PlaySound()
         End If
 
         If totaltime > 60 Then
@@ -646,7 +519,22 @@
     End Sub
 
     Private Sub hsbvolume_Scroll(sender As Object, e As EventArgs) Handles hsbvolume.Scroll
+        volume = hsbvolume.Value
+        ApplyVolume()
+    End Sub
 
+    Private Sub PlaySound()
+        If sound = 5 Then Exit Sub
+        Dim vol As UInteger = CUInt(CLng(volume) * 65535 \ 1000)
+        Dim both As UInteger = (vol << 16) Or vol
+        waveOutSetVolume(IntPtr.Zero, both)
+        If sound = 1 OrElse sound = 2 Then
+            My.Computer.Audio.Play(My.Resources.air_horn, AudioPlayMode.Background)
+        ElseIf sound = 3 Then
+            My.Computer.Audio.Play(My.Resources.ship_bell, AudioPlayMode.Background)
+        ElseIf sound = 4 Then
+            My.Computer.Audio.Play(My.Resources.train_horn, AudioPlayMode.Background)
+        End If
     End Sub
 
     Private Sub btnhelp_Click(sender As Object, e As EventArgs) Handles btnhelp.Click
